@@ -1,0 +1,89 @@
+﻿@model ktr_msc_ls1_BCM.Models.Profile
+    
+@{ 
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AVSI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="~/images/icons/avatar-01.ico" />
+
+ 
+
+    <link rel="stylesheet" type="text/css" href="~/Content/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="limiter" id="logindiv">
+            <div class="container-login100" @*style="background-image: url('https://cdn.shortpixel.ai/client/q_glossy,ret_img/../images/img-01.jpg');"*@>
+                <div class="wrap-login100 p-t-50 p-b-0">
+                    <form class="login100-form validate-form">
+                        <div class="login100-form-avatar">
+                            <img src="~/images/avatar-01.jpg" alt="AVATAR">
+                        </div>
+                        <span class="login100-form-title p-t-20 p-b-45">
+                          EPITECH BUSINESS CARD MANAGER
+                        </span>
+
+
+                        <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+
+                            <div class="wrap-input100 validate-input m-b-10">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "input100", placeholder = "Username" } })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+                            @*<input class="input100" type="password" name="password" id="password" placeholder="Password">*@
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input100", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="container-login100-form-btn p-t-10">
+                            <input type="submit" value="Login" class="login100-form-btn" id="loginbutton">
+                            <a id="btn-add" class=" btn btn-outline-info  btn" onclick="location.href= '@Url.Action("Register", "UserLogin")'"><i class="fa fa-link"></i> Item Stock</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div style="    margin: auto;  text-align:center;   position: fixed;  top: 50%;  left: 50%;  /* bring your own prefixes */  transform: translate(-50%, -50%);">
+            <div id="divLoader" style="display:none; " class="lds-hourglass"></div>
+        </div>
+
+    }
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    @*<script src="~/vendor/bootstrap/js/popper.js"></script>*@
+    @*<script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>*@
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    @*<script src="~/Scripts/main.js"></script>*@
+</body>
+
+
+</html>
